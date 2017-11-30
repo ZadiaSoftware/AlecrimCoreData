@@ -11,7 +11,7 @@ import CoreData
 
 extension NSManagedObject {
 
-    public final func inContext(_ otherContext: NSManagedObjectContext) throws -> Self {
+    public func inContext(_ otherContext: NSManagedObjectContext) throws -> Self {
         if self.managedObjectContext === otherContext {
             return self
         }
@@ -29,11 +29,11 @@ extension NSManagedObject {
 
 extension NSManagedObject {
     
-    public final func delete() {
+    public func delete() {
         self.managedObjectContext!.delete(self)
     }
     
-    public final func refresh(mergeChanges: Bool = true) {
+    public func refresh(mergeChanges: Bool = true) {
         self.managedObjectContext!.refresh(self, mergeChanges: mergeChanges)
     }
 
